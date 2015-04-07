@@ -1,26 +1,135 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
   </head>
+  <header>Twittler</header>
   <body>
+
+    <input type="text"></text>
+    <button type="button">TWEET</button>
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
+        // $body.html('');
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ':' + new Date());
           $tweet.appendTo($body);
           index -= 1;
         }
 
       });
+
+
+    </script>
+    <script>
+
+    $(document).ready(function(){
+      var $body = $('body');
+      $('button').click(function(){
+        var returnTweet = $('input').val();
+        if(returnTweet.indexOf('@shawndrost') != -1){
+        window.visitor ='shawndrost';
+        writeTweet(returnTweet);
+        var tweet = streams.users.shawndrost[streams.users.shawndrost.length - 1];
+          var $tweet = $('<div></div>');
+          $tweet.text('@' + tweet.user + ':' + tweet.message + ':' + new Date());
+          $tweet.appendTo($body);
+        }
+        if(returnTweet.indexOf('@mracus') != -1){
+          window.visitor ='mracus';
+          writeTweet(returnTweet);
+          var tweet = streams.users.mracus[streams.users.mracus.length - 1];
+          var $tweet = $('<div></div>');
+          $tweet.text('@' + tweet.user + ':' + tweet.message + ':' + new Date());
+          $tweet.appendTo($body);
+        }
+        if(returnTweet.indexOf('@sharksforcheap') != -1){
+          window.visitor ='sharksforcheap';
+          writeTweet(returnTweet);
+          var tweet = streams.users.sharksforcheap[streams.users.sharksforcheap.length - 1];
+          var $tweet = $('<div></div>');
+          $tweet.text('@' + tweet.user + ':' + tweet.message + ':' + new Date());
+          $tweet.appendTo($body);
+        }
+        if(returnTweet.indexOf('@douglascalhoun') != -1){
+          window.visitor ='douglascalhoun';
+          writeTweet(returnTweet);
+          var tweet = streams.users.douglascalhoun[streams.users.douglascalhoun.length - 1];
+          var $tweet = $('<div></div>');
+          $tweet.text('@' + tweet.user + ':' + tweet.message + ':' + new Date());
+          $tweet.appendTo($body);
+        }
+
+          $('input').val('');
+
+      })
+    })
+
+    </script>
+
+    <script>
+    $(document).ready(function(){
+      var $body = $('body');
+      $('div:contains("@shawndrost")').click(function(){
+        
+        for(var i = streams.users.shawndrost.length - 1; i >= 0; i--){
+          var $tweet = $('<li></li>')
+          var tweet = streams.users.shawndrost[i];
+          var tweetedMessage = $tweet.text('@' + tweet.message + ':' + new Date());
+          tweetedMessage.appendTo(this);
+        }
+
+      })
+    })
+    
+    $(document).ready(function(){
+      var $body = $('body');
+      $('div:contains("@mracus")').click(function(){
+        
+        for(var i = streams.users.mracus.length - 1; i >= 0; i--){
+          var $tweet = $('<li></li>')
+          var tweet = streams.users.mracus[i];
+          var tweetedMessage = $tweet.text('@' + tweet.message + ':' + new Date());
+          tweetedMessage.appendTo(this);
+        }
+
+      })
+    })
+    $(document).ready(function(){
+      var $body = $('body');
+      $('div:contains("@sharksforcheap")').click(function(){
+        
+        for(var i = streams.users.sharksforcheap.length - 1; i >= 0; i--){
+          var $tweet = $('<li></li>')
+          var tweet = streams.users.sharksforcheap[i];
+          var tweetedMessage = $tweet.text('@' + tweet.message + ':' + new Date());
+          tweetedMessage.appendTo(this);
+        }
+
+      })
+    })
+    $(document).ready(function(){
+      var $body = $('body');
+      $('div:contains("@douglascalhoun")').click(function(){
+        
+        for(var i = streams.users.douglascalhoun.length - 1; i >= 0; i--){
+          var $tweet = $('<li></li>')
+          var tweet = streams.users.douglascalhoun[i];
+          var tweetedMessage = $tweet.text('@' + tweet.message + ':' + new Date());
+          tweetedMessage.appendTo(this);
+        }
+
+      })
+    })
+
 
     </script>
   </body>
